@@ -1,11 +1,14 @@
-import {test, expect} from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
-test ('', async ({page}) => {
+test('Invalid login displays an error message', async ({ page }) => {
     await page.goto('https://practicesoftwaretesting.com/auth/login', {
-    waitUntil: 'domcontentloaded'
+        waitUntil: 'domcontentloaded'
     });
-    await page.getByLabel('Email').fill('invalid@example.com');
-    await page.locator('[data-test="password"]').fill('wrongpassword');
-    await page.getByRole('button', {name: 'Login'}).click();
+
+    await page.getByRole('textbox', { name: 'Email' }).fill('invalid@example.com');
+    await page.getByRole('textbox', { name: 'Password' }).fill('wrongpassword');
+
+    await page.getByRole('button', { name: 'Login' }).click();
+
     await expect(page.getByText('Invalid email or password')).toBeVisible();
-})
+});
