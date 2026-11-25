@@ -4,37 +4,27 @@ type User = {
     settings?: {
         notifications?: boolean,
     },
-    retire: (date: Date) => void
 }
 //Notifications set
-let user1 : User = {
+const user1 : User = {
     id : 1, 
     username:'Daisy',
     settings: {
         notifications: true
     },
-    retire: (date: Date) => {
-        console.log(date)
-    }
 };
 
 //no settings
-let user2 : User = {
+const user2 : User = {
     id : 2, 
     username:'Chemakike',
-    retire: (date: Date) => {
-        console.log(date)
-    }
 };
 
 //Settings but no notifications
-let user3 : User = {
+const user3 : User = {
     id : 3, 
     username:'Chemtai',
-    settings: {},
-    retire: (date: Date) => {
-        console.log(date)
-    }
+    settings: {}
 };
 
 function isNotified(user: User): boolean {
