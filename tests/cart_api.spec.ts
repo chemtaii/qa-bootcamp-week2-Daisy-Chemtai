@@ -19,7 +19,7 @@ test('Creates cart and adds product successfully', async ({request}) => {
 
         const addProductResponse = await request.post(`https://api.practicesoftwaretesting.com/carts/${cartID}`, {
             data: {
-                product_id: '01M8BHDGF0VMPCQCZK2F6MY5HW',
+                product_id: '01M8BVMY1ZDDN2ETS0T15RBEKB',
                 quantity: 1
             }
         });
