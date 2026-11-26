@@ -1,71 +1,100 @@
-# QA Bootcamp Week 2 Starter
+# QA Bootcamp – Week 2
 
-This is the starting point for Week 2 of the QA bootcamp. During the week you will use it to practise:
+This repository contains automated UI and API tests written using Playwright and TypeScript for the Practice Software Testing Toolshop application.
 
+During Week 2, I practised:
 - TypeScript
-- Playwright (UI testing)
-- Postman (API testing)
-- The Toolshop REST API
-
-There are no tests in this repo. You will write them during the week.
+- Playwright UI testing
+- API testing
+- Page Object Model (POM)
+- Automated test execution
 
 ## Prerequisites
 
-Install these before you start:
+Install the following before getting started:
 
-- [Node.js](https://nodejs.org/) (the current LTS version)
+- [Node.js](https://nodejs.org/) (current LTS version)
 - [Git](https://git-scm.com/)
 - [VS Code](https://code.visualstudio.com/)
 
 ## Setup
 
-Run these steps in order from a terminal.
+### Step 1: Clone the repository
 
-1. Clone the repo and open the folder:
+```bash
+git clone <repo-url>
+cd qa-bootcamp-week2-starter
+```
 
-   ```bash
-   git clone <repo-url>
-   cd qa-bootcamp-week2-starter
-   ```
+### Step 2: Install dependencies
 
-2. Install the dependencies:
+```bash
+npm install
+```
 
-   ```bash
-   npm install
-   ```
+### Step 3: Install the Chromium browser
 
-3. Install the Chromium browser for Playwright:
+```bash
+npx playwright install chromium
+```
 
-   ```bash
-   npx playwright install chromium
-   ```
+### Step 4: Configure environment variables
 
-4. Copy `.env.example` to `.env`:
+Copy `.env.example` to `.env`.
 
-   ```bash
-   cp .env.example .env
-   ```
+On Windows PowerShell:
 
-   `.env` already contains the Toolshop website URL (`TOOLSHOP_URL`) and the Toolshop API URL (`TOOLSHOP_API_URL`). Only change them if your trainer gives you different URLs.
+```powershell
+Copy-Item .env.example .env
+```
 
-5. Check that your setup works:
+The `.env` file contains the Toolshop website URL (`TOOLSHOP_URL`) and API URL (`TOOLSHOP_API_URL`).
 
-   ```bash
-   npm run check
-   ```
+### Step 5: Check the setup
 
-   This sends a GET request to the Toolshop API's `/products` endpoint (no login needed). If everything is set up correctly, it prints your Node version, the HTTP status (200), the number of products, and a last line that says `PASS`.
+```bash
+npm run check
+```
 
-> **Warning:** never commit `.env`. It is where your own settings and, later in the course, your secrets (keys, tokens, passwords) live. It is listed in `.gitignore` so Git ignores it. Do not remove it from there.
+This checks the environment configuration and verifies that the Toolshop API is accessible.
 
-## Folders
+## Running Tests
 
-| Folder     | What it is for |
-|------------|----------------|
-| `tests/`   | Your Playwright tests. It is empty for now; you will add tests during the week. |
-| `scripts/` | Helper scripts. `check.ts` checks your setup and is run by `npm run check`. |
+To run all Playwright tests:
 
-## Scripts
+```bash
+npm test
+```
 
-- `npm run check`: checks your `.env` and that you can reach the Toolshop API.
-- `npm test`: runs the Playwright tests in `tests/`.
+To run a specific test file:
+
+```bash
+npx playwright test tests/homepage.spec.ts
+```
+
+## Test Coverage
+
+The automated test suite includes:
+
+- Homepage title verification.
+- Product search.
+- Invalid login scenarios.
+- Page Object Model search test.
+- Cart creation and product addition through the API.
+- Handling requests for non-existent carts.
+- Products API response verification.
+
+## Project Structure
+
+| Folder | Description |
+|---|---|
+| `tests/` | Playwright UI and API test files. |
+| `scripts/` | Helper scripts, including the environment setup check. |
+
+## Cucumber
+
+The optional Cucumber.js scenario and connected step definitions were not completed as part of this submission.
+
+## Security
+
+Never commit your `.env` file. It contains environment configuration and may contain sensitive information such as API keys, tokens and passwords. It is included in `.gitignore`.
