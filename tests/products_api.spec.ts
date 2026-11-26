@@ -12,3 +12,4 @@ test('GET products returns a successful response', async ({ request }) => {
     expect(body.data[0].name).toBeTruthy();
 
 });
+

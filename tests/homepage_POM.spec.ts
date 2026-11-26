@@ -14,4 +14,4 @@ test('Search returns the same products regardless of letter case', async ({page}
 
     await homePage.searchProduct('Pliers');
     await expect(homePage.productNames).toHaveText(lowerCaseNames);
-})
+});
