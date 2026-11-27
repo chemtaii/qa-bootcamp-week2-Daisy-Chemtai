@@ -15,6 +15,6 @@ test('C1 Search by name', async ({page}) => {
     expect(names.length).toBeGreaterThan(0);
 
     for (const name of names) {
-        expect(name.toLowerCase()).toContain('pliers');
+        expect(name.toLowerCase()).toContain('hammer');
     }
 })
