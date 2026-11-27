@@ -17,6 +17,8 @@ test('Creates cart and adds product successfully', async ({request}) => {
         cartID = cartBody.id;
         expect(cartID).toBeTruthy();
 
+        
+
         const addProductResponse = await request.post(`https://api.practicesoftwaretesting.com/carts/${cartID}`, {
             data: {
                 product_id: '01M8BVMY1ZDDN2ETS0T15RBEKB',
